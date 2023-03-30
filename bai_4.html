@@ -5,37 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-
-
+<canvas id="myCanvas" width="400" height="400"></canvas>
 </body>
 <script>
-  function isSubstring(str1, str2) {
-    // Lặp qua các ký tự của chuỗi lớn
-    for (let i = 0; i <= str2.length - str1.length; i++) {
-      let found = true;
-      // So sánh từng ký tự của chuỗi con với chuỗi lớn
-      for (let j = 0; j < str1.length; j++) {
-        if (str1.charAt(j) !== str2.charAt(i + j)) {
-          found = false;
-          break;
+    class Rectangle {
+        constructor(x, y, width, height, color) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.color = color;
         }
-      }
-      // Nếu tìm thấy chuỗi con trong chuỗi lớn, trả về true
-      if (found) {
-        return true;
-      }
     }
-    // Nếu không tìm thấy, trả về false
-    return false;
-  }
-  // Khởi tạo 2 chuỗi
-  const str1 = "world";
-  const str2 = "hello world";
 
-  // Gọi hàm isSubstring() để kiểm tra xem chuỗi str1 có nằm trong chuỗi str2 không
-  const result = isSubstring(str1, str2);
+    let myRectangle = new Rectangle(10, 10, 200, 100, "#000000");
 
-  // Hiển thị kết quả trên console
-  console.log(result); // true
+    let canvas = document.getElementById('myCanvas');
+    let ctx = canvas.getContext("2d");
+
+    ctx.fillStyle = myRectangle.color;
+    ctx.fillRect(myRectangle.x, myRectangle.y, myRectangle.width, myRectangle.height);
 </script>
 </html>

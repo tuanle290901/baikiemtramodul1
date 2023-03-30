@@ -5,26 +5,32 @@
     <title>Title</title>
 </head>
 <body>
-<!-- Viết hàm kiểm tra xem 1 chuỗi có nằm trong chuỗi còn lại hay không. với đầu vào là 2 chuỗi (str1,str2)
-trong đó sẽ kiểm tra str1 có nằm trong str2 không, nếu có trả về true và ngược lại false. ( không được dùng hàm có sẵn để tìm)-->
-
-
+<div id="display"></div>
 
 </body>
 <script>
-    let length = 2
-    let arr = new Array(Number(length))
-    for (let i = 0; i < arr.length; i++) {
-        let value = prompt(" NHập giá trị phân cách bằng khoảng trống!")
-        arr[i] = value.split(" ")
-        for (let j=0;j<arr.length;j++){
-            if ( arr[i]===arr[j]){
+    let str1 = prompt('Nhập chuỗi 1');
+    let str2 = prompt('Nhập chuỗi 2');
 
-
+    function compare(str1, str2) {
+        for (let i = 0; i < str2.length; i++) {
+            if (str2[i] === str1[0]) {
+                let foud = true;
+                for (let j = 1; j < str1.length; j++) {
+                    if (str2[i + j] !== str1[j]) {
+                        foud = false;
+                        break;
+                    }
+                }
+                if (foud) {
+                    return true;
+                }
             }
-
         }
+        return false;
     }
 
+    let result = compare(str1, str2);
+    document.getElementById('display').innerHTML = result;
 </script>
 </html>
