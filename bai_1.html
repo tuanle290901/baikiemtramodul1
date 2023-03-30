@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="findTheThirdLargestNumber()" id="begin">Tìm giá trị cao thứ 3</button>
+<div id="result"></div>
+
+<script>
+
+
+    // Nhập mảng vào mà không ra :((
+    // function findThirdHighestValue() {
+    //     let length = 1;
+    //     let array = new Array(Number(length));
+    //     for (let i = 0; i < array.length; i++) {
+    //         let value = prompt(" Nhập giá trị phân cách bằng khoảng trống!");
+    //         array[i] = value.split(" ");
+    //     }
+    let array = [1,2,3,4,5,6,7,8,9,10];
+    function findTheThirdLargestNumber() {
+        for (let i = 0; i < array.length - 1; i++) {
+            for (let j = i + 1; j < array.length; j++) {
+                if (Number(array[j]) > Number(array[i])) {
+                    let temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+        let result = array[2];
+        document.getElementById("result").innerHTML = "Giá trị cao thứ 3 là: " + result;
+    }
+
+</script>
+</body>
+
+</html>

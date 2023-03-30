@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+</body>
+<script>
+  function isSubstring(str1, str2) {
+    // Lặp qua các ký tự của chuỗi lớn
+    for (let i = 0; i <= str2.length - str1.length; i++) {
+      let found = true;
+      // So sánh từng ký tự của chuỗi con với chuỗi lớn
+      for (let j = 0; j < str1.length; j++) {
+        if (str1.charAt(j) !== str2.charAt(i + j)) {
+          found = false;
+          break;
+        }
+      }
+      // Nếu tìm thấy chuỗi con trong chuỗi lớn, trả về true
+      if (found) {
+        return true;
+      }
+    }
+    // Nếu không tìm thấy, trả về false
+    return false;
+  }
+  // Khởi tạo 2 chuỗi
+  const str1 = "world";
+  const str2 = "hello world";
+
+  // Gọi hàm isSubstring() để kiểm tra xem chuỗi str1 có nằm trong chuỗi str2 không
+  const result = isSubstring(str1, str2);
+
+  // Hiển thị kết quả trên console
+  console.log(result); // true
+</script>
+</html>
